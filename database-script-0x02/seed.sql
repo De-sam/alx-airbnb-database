@@ -1,0 +1,41 @@
+-- USERS
+INSERT INTO users (user_id, first_name, last_name, email, password_hash, phone_number, role, created_at) VALUES ('5ccf6c46-dbfa-4dd9-b405-1fef6e86f5f8', 'Alice', 'Johnson', 'alice@example.com', 'hashedpwd1', '08011111111', 'guest', CURRENT_TIMESTAMP);
+INSERT INTO users (user_id, first_name, last_name, email, password_hash, phone_number, role, created_at) VALUES ('44fc31c2-3ea9-41d7-8c4a-9d993aa792a0', 'Bob', 'Smith', 'bob@example.com', 'hashedpwd2', '08022222222', 'host', CURRENT_TIMESTAMP);
+INSERT INTO users (user_id, first_name, last_name, email, password_hash, phone_number, role, created_at) VALUES ('8759fa8f-61f5-4700-8953-4ffa09f7b28e', 'Carol', 'Lee', 'carol@example.com', 'hashedpwd3', NULL, 'admin', CURRENT_TIMESTAMP);
+INSERT INTO users (user_id, first_name, last_name, email, password_hash, phone_number, role, created_at) VALUES ('9e2afcbc-2de0-470e-8b72-ff9139fb0f42', 'David', 'Green', 'david@example.com', 'hashedpwd4', '08033333333', 'guest', CURRENT_TIMESTAMP);
+INSERT INTO users (user_id, first_name, last_name, email, password_hash, phone_number, role, created_at) VALUES ('2d7fa3c0-2c35-435a-89a9-539813ed496b', 'Eva', 'Brown', 'eva@example.com', 'hashedpwd5', '08044444444', 'host', CURRENT_TIMESTAMP);
+
+-- PROPERTIES
+INSERT INTO properties (property_id, host_id, name, description, location, pricepernight, created_at, updated_at) VALUES ('f53226ce-cb56-4c20-838c-a627c83041aa', '44fc31c2-3ea9-41d7-8c4a-9d993aa792a0', 'Cozy Apartment', 'Nice place near the beach', 'Lagos', 25000, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
+INSERT INTO properties (property_id, host_id, name, description, location, pricepernight, created_at, updated_at) VALUES ('68210fef-dff0-4d7b-b8b2-5a432dd74156', '44fc31c2-3ea9-41d7-8c4a-9d993aa792a0', 'City Loft', 'Modern flat in downtown', 'Abuja', 30000, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
+INSERT INTO properties (property_id, host_id, name, description, location, pricepernight, created_at, updated_at) VALUES ('5b67a8e0-e58f-4053-b331-b9c49b1e980a', '2d7fa3c0-2c35-435a-89a9-539813ed496b', 'Studio Pod', 'Compact and quiet', 'Ibadan', 18000, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
+INSERT INTO properties (property_id, host_id, name, description, location, pricepernight, created_at, updated_at) VALUES ('6baf48ff-bb06-459e-8bf0-4ae52c62fe63', '2d7fa3c0-2c35-435a-89a9-539813ed496b', 'Luxury Villa', 'Spacious and high-end', 'Lekki', 75000, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
+INSERT INTO properties (property_id, host_id, name, description, location, pricepernight, created_at, updated_at) VALUES ('ca902176-faa6-4164-8e50-bf0b2528fde9', '2d7fa3c0-2c35-435a-89a9-539813ed496b', 'Penthouse', 'Top floor with city view', 'Enugu', 60000, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
+
+-- BOOKINGS
+INSERT INTO bookings (booking_id, property_id, user_id, start_date, end_date, total_price, status, created_at) VALUES ('bd79bb4b-acd1-4e7b-8f89-c1172ad210e5', 'f53226ce-cb56-4c20-838c-a627c83041aa', '5ccf6c46-dbfa-4dd9-b405-1fef6e86f5f8', '2025-07-01', '2025-07-05', 100000, 'confirmed', CURRENT_TIMESTAMP);
+INSERT INTO bookings (booking_id, property_id, user_id, start_date, end_date, total_price, status, created_at) VALUES ('f6792cb1-425b-44c9-a5d0-fe3346e003e9', '68210fef-dff0-4d7b-b8b2-5a432dd74156', '5ccf6c46-dbfa-4dd9-b405-1fef6e86f5f8', '2025-08-10', '2025-08-15', 150000, 'pending', CURRENT_TIMESTAMP);
+INSERT INTO bookings (booking_id, property_id, user_id, start_date, end_date, total_price, status, created_at) VALUES ('386e020c-7458-482f-8002-be6c2e02e73f', '5b67a8e0-e58f-4053-b331-b9c49b1e980a', '9e2afcbc-2de0-470e-8b72-ff9139fb0f42', '2025-07-20', '2025-07-25', 90000, 'confirmed', CURRENT_TIMESTAMP);
+INSERT INTO bookings (booking_id, property_id, user_id, start_date, end_date, total_price, status, created_at) VALUES ('411b01f2-78d7-448e-a866-41c3731061d7', '6baf48ff-bb06-459e-8bf0-4ae52c62fe63', '9e2afcbc-2de0-470e-8b72-ff9139fb0f42', '2025-09-01', '2025-09-03', 150000, 'confirmed', CURRENT_TIMESTAMP);
+INSERT INTO bookings (booking_id, property_id, user_id, start_date, end_date, total_price, status, created_at) VALUES ('91d2d2f9-1d12-4e51-9cbd-eecb0bd45dfd', 'ca902176-faa6-4164-8e50-bf0b2528fde9', '5ccf6c46-dbfa-4dd9-b405-1fef6e86f5f8', '2025-10-10', '2025-10-15', 300000, 'canceled', CURRENT_TIMESTAMP);
+
+-- PAYMENTS
+INSERT INTO payments (payment_id, booking_id, amount, payment_date, payment_method) VALUES ('ff446304-4023-4724-8d08-0dc3739b5dfb', 'bd79bb4b-acd1-4e7b-8f89-c1172ad210e5', 100000, CURRENT_TIMESTAMP, 'credit_card');
+INSERT INTO payments (payment_id, booking_id, amount, payment_date, payment_method) VALUES ('37b02513-4bf7-4495-8006-c23758dacb7e', 'f6792cb1-425b-44c9-a5d0-fe3346e003e9', 150000, CURRENT_TIMESTAMP, 'paypal');
+INSERT INTO payments (payment_id, booking_id, amount, payment_date, payment_method) VALUES ('308c37f7-bc69-409e-9565-19f1fe302f31', '386e020c-7458-482f-8002-be6c2e02e73f', 90000, CURRENT_TIMESTAMP, 'stripe');
+INSERT INTO payments (payment_id, booking_id, amount, payment_date, payment_method) VALUES ('e3f61e87-6b63-4b66-af7a-352a40e22bbb', '411b01f2-78d7-448e-a866-41c3731061d7', 150000, CURRENT_TIMESTAMP, 'credit_card');
+INSERT INTO payments (payment_id, booking_id, amount, payment_date, payment_method) VALUES ('f4cb21be-15c7-4ea2-958c-51f7633078c3', '91d2d2f9-1d12-4e51-9cbd-eecb0bd45dfd', 300000, CURRENT_TIMESTAMP, 'paypal');
+
+-- REVIEWS
+INSERT INTO reviews (review_id, property_id, user_id, rating, comment, created_at) VALUES ('011dc83f-6607-4d8c-a2eb-66c1cdd46c78', 'f53226ce-cb56-4c20-838c-a627c83041aa', '5ccf6c46-dbfa-4dd9-b405-1fef6e86f5f8', 5, 'Amazing stay! Would book again.', CURRENT_TIMESTAMP);
+INSERT INTO reviews (review_id, property_id, user_id, rating, comment, created_at) VALUES ('68ba7ebc-8222-4241-ad64-6ba2ad8c0be9', '68210fef-dff0-4d7b-b8b2-5a432dd74156', '5ccf6c46-dbfa-4dd9-b405-1fef6e86f5f8', 4, 'Great place, slightly noisy at night.', CURRENT_TIMESTAMP);
+INSERT INTO reviews (review_id, property_id, user_id, rating, comment, created_at) VALUES ('0ecd1ab7-2f17-40a4-8a0d-5599ed47d10d', '5b67a8e0-e58f-4053-b331-b9c49b1e980a', '9e2afcbc-2de0-470e-8b72-ff9139fb0f42', 5, 'Exactly as described. Very peaceful.', CURRENT_TIMESTAMP);
+INSERT INTO reviews (review_id, property_id, user_id, rating, comment, created_at) VALUES ('0f8b1491-c0ff-4e6c-b003-589af8da0c2b', '6baf48ff-bb06-459e-8bf0-4ae52c62fe63', '9e2afcbc-2de0-470e-8b72-ff9139fb0f42', 3, 'Beautiful home but overpriced.', CURRENT_TIMESTAMP);
+INSERT INTO reviews (review_id, property_id, user_id, rating, comment, created_at) VALUES ('f6d46085-bf57-47fa-9735-c78a09abe942', 'ca902176-faa6-4164-8e50-bf0b2528fde9', '5ccf6c46-dbfa-4dd9-b405-1fef6e86f5f8', 4, 'Great view, but booking was cancelled.', CURRENT_TIMESTAMP);
+
+-- MESSAGES
+INSERT INTO messages (message_id, sender_id, recipient_id, message_body, sent_at) VALUES ('636f581c-0ad0-4664-b02f-2e61c549baff', '5ccf6c46-dbfa-4dd9-b405-1fef6e86f5f8', '44fc31c2-3ea9-41d7-8c4a-9d993aa792a0', 'Hi, is the apartment available in July?', CURRENT_TIMESTAMP);
+INSERT INTO messages (message_id, sender_id, recipient_id, message_body, sent_at) VALUES ('d08683e4-f6ba-4aae-8ac5-946cf2e1d4e6', '44fc31c2-3ea9-41d7-8c4a-9d993aa792a0', '5ccf6c46-dbfa-4dd9-b405-1fef6e86f5f8', 'Yes, it’s available from July 1st to 5th.', CURRENT_TIMESTAMP);
+INSERT INTO messages (message_id, sender_id, recipient_id, message_body, sent_at) VALUES ('52f4e2d9-3b2d-4a35-aa12-2ed3bd6616ec', '9e2afcbc-2de0-470e-8b72-ff9139fb0f42', '2d7fa3c0-2c35-435a-89a9-539813ed496b', 'Can I book the studio for next weekend?', CURRENT_TIMESTAMP);
+INSERT INTO messages (message_id, sender_id, recipient_id, message_body, sent_at) VALUES ('8977d1bb-2aa5-4663-9b79-1fa604e73811', '2d7fa3c0-2c35-435a-89a9-539813ed496b', '9e2afcbc-2de0-470e-8b72-ff9139fb0f42', 'Yes, I’ll reserve it for you.', CURRENT_TIMESTAMP);
+INSERT INTO messages (message_id, sender_id, recipient_id, message_body, sent_at) VALUES ('ef19671b-f32c-48dc-bd66-997a0843e82b', '5ccf6c46-dbfa-4dd9-b405-1fef6e86f5f8', '2d7fa3c0-2c35-435a-89a9-539813ed496b', 'The penthouse looks nice! Is it pet-friendly?', CURRENT_TIMESTAMP);
